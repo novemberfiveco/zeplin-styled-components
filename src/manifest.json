@@ -1,0 +1,67 @@
+{
+  "packageName": "zeplin-styled-components",
+  "name": "Styled Components",
+  "description": "A Zeplin extension that generates Styled Component snippets from colors, text styles and layers.",
+  "version": "0.1.0",
+  "moduleURL": "./index.js",
+  "author": {
+    "name": "Nick Verstocken",
+    "email": "nick.verstocken@novemberfive.co",
+    "url": "https://novemberfive.co"
+  },
+  "repository": "https://github.com/novemberfiveco/zeplin-styled-components.git",
+  "options": [
+    {
+      "name": "Theme namespace for colors in styled components",
+      "type": "text",
+      "id": "colorThemeNameSpace",
+      "default": "theme.palette"
+    },
+    {
+      "name": "Theme namespace for text styles in styled components",
+      "type": "text",
+      "id": "textStyleThemeNameSpace",
+      "default": "theme.textStyles"
+    },
+    {
+      "name": "Exclude specific css properties (comma seperated)",
+      "type": "text",
+      "id": "excludeProperties",
+      "default": "font-face"
+    },
+    {
+      "name": "Color format",
+      "type": "picker",
+      "id": "colorFormat",
+      "options": [
+        {
+          "name": "Default",
+          "value": "default"
+        },
+        {
+          "name": "HEX",
+          "value": "hex"
+        },
+        {
+          "name": "RGB",
+          "value": "rgb"
+        },
+        {
+          "name": "HSL",
+          "value": "hsl"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "name": "Include default browser values",
+      "type": "switch",
+      "id": "showDefaultValues",
+      "default": false
+    }
+  ],
+    "projectTypes": [
+      "web"
+    ]
+
+}

@@ -1,37 +1,59 @@
-/**
- * Export functions you want to work with, see documentation for details:
- * https://github.com/zeplin/zeplin-extension-documentation
- */
+import { generateTextStyles } from './textStyles';
+import { generateColors } from './colorStyles';
+import { generateLayerStyle } from './layer';
+import { OPTION_NAMES } from './config';
 
-function layer(context, selectedLayer) {
-
+export function styleguideTextStyles(context, textStyles) {
+  const options = {
+    colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
+    showDefaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES),
+    excludeProperties: context.getOption(OPTION_NAMES.EXCLUDE_PROPERTIES),
+    colorThemeNameSpace: context.getOption(OPTION_NAMES.COLOR_THEME_NAMESPACE)
+  };
+  return generateTextStyles(options, context, textStyles);
 }
 
-function styleguideColors(context, colors) {
-
+export function styleguideColors(context, colors) {
+  const options = {
+    colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT)
+  };
+  return generateColors(options, context, colors);
 }
 
-function styleguideTextStyles(context, textStyles) {
+export function exportStyleguideColors(context, colors) {
+  const { code: colorCode, language } = styleguideColors(context, colors);
+  const code = `${colorCode}`;
 
+  return {
+    code,
+    filename: 'palette.js',
+    language
+  };
 }
 
-function exportStyleguideColors(context, colors) {
-
+export function layer(context, selectedLayer) {
+  const options = {
+    colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
+    showDefaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES),
+    excludeProperties: context.getOption(OPTION_NAMES.EXCLUDE_PROPERTIES),
+    colorThemeNameSpace: context.getOption(OPTION_NAMES.COLOR_THEME_NAMESPACE),
+    textStyleThemeNameSpace: context.getOption(
+      OPTION_NAMES.TEXTSTYLE_THEME_NAMESPACE
+    )
+  };
+  return generateLayerStyle(options, context, selectedLayer);
 }
 
-function exportStyleguideTextStyles(context, textStyles) {
+export function exportStyleguideTextStyles(context, textStyles) {
+  const { code: textStyleCode, language } = styleguideTextStyles(
+    context,
+    textStyles
+  );
+  const code = `${textStyleCode}`;
 
+  return {
+    code,
+    filename: 'textStyles.js',
+    language
+  };
 }
-
-function comment(context, text) {
-
-}
-
-export default {
-    layer,
-    styleguideColors,
-    styleguideTextStyles,
-    exportStyleguideColors,
-    exportStyleguideTextStyles,
-    comment
-};
