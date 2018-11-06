@@ -1,13 +1,18 @@
 {
   "name": "react-styled-components",
   "version": "0.1.0",
-  "description": "Sample extension description.",
+  "description": "Zeppeling extension that generates styled components",
   "scripts": {
     "start": "zem start",
     "build": "zem build",
     "clean": "zem clean",
     "exec": "zem exec",
     "publish": "zem publish"
+  },
+  "author": {
+    "name": "Nick Verstocken",
+    "email": "nick.verstocken@novemberfive.co",
+    "url": "https://github.com/nickverstocken"
   },
   "zeplin": {
     "displayName": "react-styled-components",
