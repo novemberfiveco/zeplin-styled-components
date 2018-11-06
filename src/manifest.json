@@ -1,0 +1,12 @@
+{
+  "name": "react-styled-components",
+  "description": "Zeppeling extension that generates styled components",
+  "version": "0.1.0",
+  "moduleURL": "./index.js",
+  "author": {
+    "name": "Nick Verstocken",
+    "email": "nick.verstocken@novemberfive.co",
+    "url": "https://github.com/nickverstocken"
+  },
+  "options": []
+}
