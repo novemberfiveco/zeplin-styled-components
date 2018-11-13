@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
   'parser': 'babel-eslint',
   'env': {
@@ -19,4 +20,11 @@ module.exports = {
       'singleQuote': true,
     }],
   },
+  'settings': {
+    'import/resolver': {
+      'webpack': {
+        'config': path.join(__dirname, 'config/webpack.config.dev.js')
+      }
+    }
+  }
 };

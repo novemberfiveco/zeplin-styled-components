@@ -9,13 +9,11 @@
     "exec": "zem exec",
     "publish": "zem publish"
   },
-  "main": "index.js",
   "zeplin": {
-    "displayName": "React Styled Component",
-    "projectTypes": [
-      "web"
-    ]
+    "displayName": "Hello Layer",
+    "projectTypes": ["web", "ios", "android", "osx"]
   },
+  "main": "index.js",
   "dependencies": {
     "humps": "^2.0.1",
     "zem": "^0.3.3"

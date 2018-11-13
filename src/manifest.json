@@ -8,5 +8,11 @@
     "email": "nick.verstocken@novemberfive.co",
     "url": "https://github.com/nickverstocken"
   },
+  "zeplin": {
+    "displayName": "React Styled Component",
+    "projectTypes": [
+      "web"
+    ]
+  },
   "options": []
 }

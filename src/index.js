@@ -1,19 +1,25 @@
-import { generateColors } from './colorStyles';
+/* eslint-disable */
+import { generateTextStyles } from './textStyles';
 
-const layer = () => ({
-  code: 'U moeder',
-  mode: 'swift'
-});
-
-const styleguideColors = (context, colors) => generateColors(context, colors);
-
-const exportStyleguideColors = (context, colors) => ({
-  ...generateColors(context, colors),
-  filename: 'styleguide-colors.js'
-});
-
-export default {
-  layer,
-  styleguideColors,
-  exportStyleguideColors
+String.prototype.replaceAll = function(search, replacement) {
+  const target = this;
+  return target.replace(new RegExp(search, 'g'), replacement);
 };
+
+export function styleguideTextStyles(context, textStyles) {
+  return generateTextStyles(context, textStyles);
+}
+
+export function layer() {
+  const object = {
+    layerName: 'test',
+    projectName: 'test2'
+  };
+
+  const JSONString = JSON.stringify(object, null, 2);
+
+  return {
+    code: JSONString,
+    language: 'json'
+  };
+}
