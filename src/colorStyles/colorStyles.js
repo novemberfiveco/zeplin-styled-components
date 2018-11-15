@@ -1,5 +1,6 @@
 // @flow
 import humps from 'humps';
+import { toHexString, sortKeys } from '../utils';
 
 type Color = {
   r: number,
@@ -10,23 +11,24 @@ type Color = {
 };
 type Colors = Color[];
 
-const colorFormatter = (color: Color) =>
-  `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
-
 export const generateColors = (context, colors: Colors) => {
   const colorObject = colors.reduce(
     (acc, curr) => ({
       ...acc,
       [humps.camelize(
-        curr.name.replaceAll('/', '-').toLowerCase()
-      )]: colorFormatter(curr)
+        curr.name.replace('/', '-').toLowerCase()
+      )]: `'${toHexString(curr)}'`
     }),
     {}
   );
-  // const code = prettier.format(`export default ${JSON.stringify(colorObject)}`);
+  const objectToString = JSON.stringify(sortKeys(colorObject), null, 2).replace(
+    /"/g,
+    ''
+  );
   const code = `
 // theme.palette
-export default ${JSON.stringify(colorObject, null, 2)}`;
+
+export default ${objectToString}`;
   return {
     code,
     mode: 'javascript'

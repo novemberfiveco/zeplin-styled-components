@@ -1,6 +1,6 @@
 // @flow
 import humps from 'humps';
-import { round } from '../utils';
+import { round, toHexString } from '../utils';
 
 const keys = [
   'fontFace',
@@ -18,19 +18,16 @@ type TextStyle = {
   name: string
 };
 
-const colorFormatter = (color: Color) =>
-  `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`;
-
 const getValue = (context, textStyle: TextStyle, key) => {
   const value = textStyle[key];
   if (key === 'color') {
     const color = context.project.findColorEqual(value);
     if (color && color.name) {
       return `\${({ theme }) => theme.palette.${humps.camelize(
-        color.name.replaceAll('/', '-').toLowerCase()
+        color.name.replace('/', '-').toLowerCase()
       )}}`;
     }
-    return colorFormatter(value);
+    return toHexString(value);
   }
 
   if (['lineHeight'].indexOf(key) !== -1) {
@@ -65,9 +62,7 @@ const convertTextStyleForKey = (context, textStyle: TextStyle, key) => {
 };
 
 const convertTextStyle = (context, textStyle: TextStyle) => {
-  const name = humps.camelize(
-    textStyle.name.replaceAll('/', '-').toLowerCase()
-  );
+  const name = humps.camelize(textStyle.name.replace('/', '-').toLowerCase());
   const pre = `  ${name}: css\``;
   const cssCode = keys
     .map(key => convertTextStyleForKey(context, textStyle, key))
@@ -78,6 +73,8 @@ const convertTextStyle = (context, textStyle: TextStyle) => {
 
 export const generateTextStyles = (context, textStyles: TextStyle[]) => {
   const pre = `
+// theme.textStyles
+
 import { css } from 'styled-components';
 
 export default {\n`;
