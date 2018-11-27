@@ -9,10 +9,6 @@
     "exec": "zem exec",
     "publish": "zem publish"
   },
-  "zeplin": {
-    "displayName": "Hello Layer",
-    "projectTypes": ["web", "ios", "android", "osx"]
-  },
   "main": "index.js",
   "dependencies": {
     "humps": "^2.0.1",

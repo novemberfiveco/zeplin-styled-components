@@ -1,6 +1,6 @@
 // @flow
 import humps from 'humps';
-import { toHexString, sortKeys } from '../utils';
+import { sortKeys, getColorStringByFormat } from '../utils';
 
 type Color = {
   r: number,
@@ -11,13 +11,13 @@ type Color = {
 };
 type Colors = Color[];
 
-export const generateColors = (context, colors: Colors) => {
+export const generateColors = (options, context, colors: Colors) => {
   const colorObject = colors.reduce(
     (acc, curr) => ({
       ...acc,
       [humps.camelize(
         curr.name.replace('/', '-').toLowerCase()
-      )]: `'${toHexString(curr)}'`
+      )]: `'${getColorStringByFormat(curr, options.colorFormat)}'`
     }),
     {}
   );

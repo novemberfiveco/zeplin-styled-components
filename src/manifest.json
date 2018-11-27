@@ -1,5 +1,6 @@
 {
-  "name": "react-styled-components",
+  "packageName": "react-styled-components",
+  "name": "React styled components",
   "description": "Zeppeling extension that generates styled components",
   "version": "0.1.0",
   "moduleURL": "./index.js",
@@ -8,11 +9,41 @@
     "email": "nick.verstocken@novemberfive.co",
     "url": "https://github.com/nickverstocken"
   },
-  "zeplin": {
-    "displayName": "React Styled Component",
+  "repository": "https://github.com/johankasperi/zem-rn-styled-components.git",
+  "options": [
+    {
+      "name": "Prefix",
+      "type": "text",
+      "id": "prefix",
+      "default": ""
+    },
+    {
+      "name": "Color format",
+      "type": "picker",
+      "id": "colorFormat",
+      "options": [
+        {
+          "name": "Default",
+          "value": "default"
+        },
+        {
+          "name": "HEX",
+          "value": "hex"
+        },
+        {
+          "name": "RGB",
+          "value": "rgb"
+        },
+        {
+          "name": "HSL",
+          "value": "hsl"
+        }
+      ],
+      "default": "default"
+    }
+  ],
     "projectTypes": [
       "web"
     ]
-  },
-  "options": []
+
 }

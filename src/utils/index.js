@@ -1,18 +1,24 @@
 export const round = (number, decimalPlaces = 2) =>
   parseFloat(number.toFixed(decimalPlaces));
 
-const toHex = num => (num < 16 ? '0' : '') + num.toString(16);
+const toRgbaString = color => {
+  const rgb = `${Math.round(color.r)}, ${Math.round(color.g)}, ${Math.round(
+    color.b
+  )}`;
 
-export const toHexString = (color, prefix) => {
-  let hexCode = color.hexBase();
+  const rgbStr = color.a < 1 ? `rgba(${rgb}, ${color.a})` : `rgb(${rgb})`;
+
+  return rgbStr;
+};
+
+export const toHexString = color => {
+  let colorString = `#${color.hexBase()}`;
 
   if (color.a < 1) {
-    const hexA = toHex(color.a * 255);
-
-    hexCode = prefix ? hexA + hexCode : hexCode + hexA;
+    colorString = `${toRgbaString(color)}`;
   }
 
-  return `#${hexCode}`;
+  return colorString;
 };
 
 export const sortKeys = data => {
@@ -23,6 +29,20 @@ export const sortKeys = data => {
       ordered[key] = data[key];
     });
   return ordered;
+};
+
+export const getColorStringByFormat = (color, colorFormat) => {
+  switch (colorFormat) {
+    case 'hex':
+      return toHexString(color);
+
+    case 'rgb':
+      return toRgbaString(color);
+
+    case 'default':
+    default:
+      return toHexString(color);
+  }
 };
 
 export default null;

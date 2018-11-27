@@ -1,10 +1,39 @@
 import { generateTextStyles } from './textStyles';
 import { generateColors } from './colorStyles';
+import { OPTION_NAMES } from './config';
 
 export function styleguideTextStyles(context, textStyles) {
   return generateTextStyles(context, textStyles);
 }
 
 export function styleguideColors(context, colors) {
-  return generateColors(context, colors);
+  const options = {
+    colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT)
+  };
+  return generateColors(options, context, colors);
+}
+
+export function exportStyleguideColors(context, colors) {
+  const { code: colorCode, language } = styleguideColors(context, colors);
+  const code = `${colorCode}`;
+
+  return {
+    code,
+    filename: 'palette.js',
+    language
+  };
+}
+
+export function exportStyleguideTextStyles(context, textStyles) {
+  const { code: textStyleCode, language } = styleguideTextStyles(
+    context,
+    textStyles
+  );
+  const code = `${textStyleCode}`;
+
+  return {
+    code,
+    filename: 'textStyles.js',
+    language
+  };
 }
