@@ -16,7 +16,7 @@ export const generateColors = (options, context, colors: Colors) => {
     (acc, curr) => ({
       ...acc,
       [humps.camelize(
-        curr.name.replace('/', '-').toLowerCase()
+        curr.name.replace(/\//g, '-').toLowerCase()
       )]: `'${getColorStringByFormat(curr, options.colorFormat)}'`
     }),
     {}

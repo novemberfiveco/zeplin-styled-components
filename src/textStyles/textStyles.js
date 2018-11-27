@@ -24,7 +24,7 @@ const getValue = (options, context, textStyle: TextStyle, key) => {
     const color = context.project.findColorEqual(value);
     if (color && color.name) {
       return `\${({ theme }) => theme.palette.${humps.camelize(
-        color.name.replace('/', '-').toLowerCase()
+        color.name.replace(/\//g, '-').toLowerCase()
       )}}`;
     }
     return getColorStringByFormat(value, options.colorFormat);
@@ -67,7 +67,7 @@ const convertTextStyleForKey = (
 };
 
 const convertTextStyle = (options, context, textStyle: TextStyle) => {
-  const name = humps.camelize(textStyle.name.replace('/', '-').toLowerCase());
+  const name = humps.camelize(textStyle.name.replace(/\//g, '-').toLowerCase());
   const pre = `  ${name}: css\``;
   const cssCode = keys
     .map(key => convertTextStyleForKey(options, context, textStyle, key))

@@ -12,9 +12,9 @@
   "repository": "https://github.com/johankasperi/zem-rn-styled-components.git",
   "options": [
     {
-      "name": "Prefix",
+      "name": "Theme namespace for colors in styled components",
       "type": "text",
-      "id": "prefix",
+      "id": "colorThemePrefix",
       "default": ""
     },
     {
