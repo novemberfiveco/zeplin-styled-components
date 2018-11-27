@@ -3,7 +3,10 @@ import { generateColors } from './colorStyles';
 import { OPTION_NAMES } from './config';
 
 export function styleguideTextStyles(context, textStyles) {
-  return generateTextStyles(context, textStyles);
+  const options = {
+    colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT)
+  };
+  return generateTextStyles(options, context, textStyles);
 }
 
 export function styleguideColors(context, colors) {

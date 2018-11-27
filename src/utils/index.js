@@ -1,26 +1,6 @@
 export const round = (number, decimalPlaces = 2) =>
   parseFloat(number.toFixed(decimalPlaces));
 
-const toRgbaString = color => {
-  const rgb = `${Math.round(color.r)}, ${Math.round(color.g)}, ${Math.round(
-    color.b
-  )}`;
-
-  const rgbStr = color.a < 1 ? `rgba(${rgb}, ${color.a})` : `rgb(${rgb})`;
-
-  return rgbStr;
-};
-
-export const toHexString = color => {
-  let colorString = `#${color.hexBase()}`;
-
-  if (color.a < 1) {
-    colorString = `${toRgbaString(color)}`;
-  }
-
-  return colorString;
-};
-
 export const sortKeys = data => {
   const ordered = {};
   Object.keys(data)
@@ -31,11 +11,44 @@ export const sortKeys = data => {
   return ordered;
 };
 
+const toHSLAString = color => {
+  const hslColor = color.toHSL();
+  const hsl =
+    `${Math.round(hslColor.h * 360)}, ` +
+    `${Math.round(hslColor.s * 100)}%, ` +
+    `${Math.round(hslColor.l * 100)}%`;
+
+  const hslStr = color.a < 1 ? `hsla(${hsl}, ${color.a})` : `hsl(${hsl})`;
+
+  return hslStr;
+};
+
+const toRgbaString = color => {
+  const rgb = `${Math.round(color.r)}, ${Math.round(color.g)}, ${Math.round(
+    color.b
+  )}`;
+
+  const rgbStr = color.a < 1 ? `rgba(${rgb}, ${color.a})` : `rgb(${rgb})`;
+
+  return rgbStr;
+};
+
+const toHexString = color => {
+  let colorString = `#${color.hexBase()}`;
+
+  if (color.a < 1) {
+    colorString = `${toRgbaString(color)}`;
+  }
+
+  return colorString;
+};
+
 export const getColorStringByFormat = (color, colorFormat) => {
   switch (colorFormat) {
     case 'hex':
       return toHexString(color);
-
+    case 'hsl':
+      return toHSLAString(color);
     case 'rgb':
       return toRgbaString(color);
 
@@ -44,5 +57,3 @@ export const getColorStringByFormat = (color, colorFormat) => {
       return toHexString(color);
   }
 };
-
-export default null;
