@@ -4,7 +4,10 @@ import { OPTION_NAMES } from './config';
 
 export function styleguideTextStyles(context, textStyles) {
   const options = {
-    colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT)
+    colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
+    showDefaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES),
+    excludeProperties: context.getOption(OPTION_NAMES.EXCLUDE_PROPERTIES),
+    colorThemeNameSpace: context.getOption(OPTION_NAMES.COLOR_THEME_NAMESPACE)
   };
   return generateTextStyles(options, context, textStyles);
 }

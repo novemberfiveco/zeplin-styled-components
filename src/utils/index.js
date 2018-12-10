@@ -33,6 +33,16 @@ const toRgbaString = color => {
   return rgbStr;
 };
 
+export const mapFontWeightValueToNumber = fontweight => {
+  const values = {
+    light: 300,
+    regular: 400,
+    semibold: 600,
+    bold: 700
+  };
+  return values[fontweight] || fontweight;
+};
+
 const toHexString = color => {
   let colorString = `#${color.hexBase()}`;
 

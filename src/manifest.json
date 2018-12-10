@@ -14,8 +14,14 @@
     {
       "name": "Theme namespace for colors in styled components",
       "type": "text",
-      "id": "colorThemePrefix",
-      "default": ""
+      "id": "colorThemeNameSpace",
+      "default": "theme.palette"
+    },
+    {
+      "name": "Exclude specific css properties (comma seperated)",
+      "type": "text",
+      "id": "excludeProperties",
+      "default": "font-face"
     },
     {
       "name": "Color format",
@@ -40,6 +46,12 @@
         }
       ],
       "default": "default"
+    },
+    {
+      "name": "Include default browser values",
+      "type": "switch",
+      "id": "showDefaultValues",
+      "default": false
     }
   ],
     "projectTypes": [

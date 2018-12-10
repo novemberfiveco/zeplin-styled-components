@@ -1,18 +1,12 @@
 // @flow
 import humps from 'humps';
-import { round, getColorStringByFormat } from '../utils';
+import {
+  round,
+  getColorStringByFormat,
+  mapFontWeightValueToNumber
+} from '../utils';
 
-const keys = [
-  'fontFace',
-  'fontSize',
-  'fontWeight',
-  'fontStyle',
-  'fontStretch',
-  'lineHeight',
-  'textAlign',
-  'letterSpacing',
-  'color'
-];
+let excludeProperties = ['name'];
 
 type TextStyle = {
   name: string
@@ -20,24 +14,30 @@ type TextStyle = {
 
 const getValue = (options, context, textStyle: TextStyle, key) => {
   const value = textStyle[key];
-  if (key === 'color') {
-    const color = context.project.findColorEqual(value);
-    if (color && color.name) {
-      return `\${({ theme }) => theme.palette.${humps.camelize(
-        color.name.replace(/\//g, '-').toLowerCase()
-      )}}`;
+  switch (key) {
+    case 'color': {
+      const color = context.project.findColorEqual(value);
+      if (color && color.name) {
+        return `\${props => props.${options.colorThemeNameSpace &&
+          `${options.colorThemeNameSpace}.`}${humps.camelize(
+          color.name.replace(/\//g, '-').toLowerCase()
+        )}}`;
+      }
+      return getColorStringByFormat(value, options.colorFormat);
     }
-    return getColorStringByFormat(value, options.colorFormat);
+    case 'weightText':
+    case 'fontWeight':
+      return mapFontWeightValueToNumber(value);
+    case 'lineHeight':
+      return `${round(value / textStyle.fontSize, 2)}`;
+    case 'fontSize':
+    case 'letterSpacing':
+      return `${round(value, 2)}px`;
+    case 'fontFamily':
+      return humps.pascalize(value);
+    default:
+      return value;
   }
-
-  if (['lineHeight'].indexOf(key) !== -1) {
-    return `${round(value / textStyle.fontSize, 2)}`;
-  }
-
-  if (['fontSize', 'letterSpacing'].indexOf(key) !== -1) {
-    return `${round(value, 2)}px`;
-  }
-  return value;
 };
 
 const convertTextStyleForKey = (
@@ -46,20 +46,14 @@ const convertTextStyleForKey = (
   textStyle: TextStyle,
   key
 ) => {
-  if (
-    Object.prototype.hasOwnProperty.call(textStyle, key) &&
-    textStyle[key] !== null
-  ) {
+  if (!excludeProperties.includes(key)) {
     const property = humps.decamelize(key, { separator: '-' });
     const value = getValue(options, context, textStyle, key);
     if (
-      (key === 'fontStretch' && textStyle.fontStretch === 'normal') ||
-      (key === 'fontStyle' && textStyle.fontStyle === 'normal')
+      !options.showDefaultValues &&
+      (value === 'normal' || value === 'regular' || value === '0px')
     ) {
       return '';
-    }
-    if (key === 'fontFace') {
-      return `\n    font-family: ${humps.pascalize(value)};`;
     }
     return `\n    ${property}: ${value};`;
   }
@@ -69,10 +63,10 @@ const convertTextStyleForKey = (
 const convertTextStyle = (options, context, textStyle: TextStyle) => {
   const name = humps.camelize(textStyle.name.replace(/\//g, '-').toLowerCase());
   const pre = `  ${name}: css\``;
-  const cssCode = keys
+  const cssCode = Object.keys(textStyle)
     .map(key => convertTextStyleForKey(options, context, textStyle, key))
     .join('');
-  const post = `\`,\n\n`;
+  const post = `\n \`,\n\n`;
   return pre + cssCode + post;
 };
 
@@ -81,13 +75,20 @@ export const generateTextStyles = (
   context,
   textStyles: TextStyle[]
 ) => {
+  if (options.excludeProperties) {
+    excludeProperties = excludeProperties.concat(
+      options.excludeProperties
+        .split(',')
+        .map(prop => humps.camelize(prop.replace(/\//g, '-').toLowerCase()))
+    );
+  }
   const pre = `
 // theme.textStyles
-
+${excludeProperties.toString()}
 import { css } from 'styled-components';
 
 export default {\n`;
-  const post = `}\n`;
+  const post = `};\n`;
   const styles = textStyles
     .map(textStyle => convertTextStyle(options, context, textStyle))
     .join('');
