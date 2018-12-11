@@ -18,6 +18,12 @@
       "default": "theme.palette"
     },
     {
+      "name": "Theme namespace for text styles in styled components",
+      "type": "text",
+      "id": "textStyleThemeNameSpace",
+      "default": "theme.textStyles"
+    },
+    {
       "name": "Exclude specific css properties (comma seperated)",
       "type": "text",
       "id": "excludeProperties",

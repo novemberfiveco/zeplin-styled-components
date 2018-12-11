@@ -26,12 +26,12 @@ export const generateColors = (options, context, colors: Colors) => {
     ''
   );
   const code = `
-// theme.palette
+// colors
 
 export default ${objectToString}`;
   return {
     code,
-    mode: 'javascript'
+    language: 'javascript'
   };
 };
 export default null;

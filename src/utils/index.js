@@ -1,3 +1,6 @@
+import humps from 'humps';
+import { INDENTATION } from '../config';
+
 export const round = (number, decimalPlaces = 2) =>
   parseFloat(number.toFixed(decimalPlaces));
 
@@ -66,4 +69,125 @@ export const getColorStringByFormat = (color, colorFormat) => {
     default:
       return toHexString(color);
   }
+};
+
+const getDestructure = (nameSpace, name) => {
+  if (!nameSpace) return `\${props => props.${name}}`;
+  const names = nameSpace.split('.');
+  const mainNameSpace = names.length && names[0];
+  return `\${({ ${mainNameSpace} }) => ${nameSpace}.${name}}`;
+};
+
+export const getThemeTextStyle = (options, context, textStyle) => {
+  const foundEqual = context.project.findTextStyleEqual(textStyle);
+  if (foundEqual) {
+    return getDestructure(
+      options.textStyleThemeNameSpace,
+      humps.camelize(foundEqual.name.replace(/\//g, '-').toLowerCase())
+    );
+  }
+  return '';
+};
+
+export const getThemeColor = (options, context, color) => {
+  const foundColor = context.project.findColorEqual(color);
+  if (foundColor && foundColor.name) {
+    return getDestructure(
+      options.colorThemeNameSpace,
+      humps.camelize(foundColor.name.replace(/\//g, '-').toLowerCase())
+    );
+  }
+  return getColorStringByFormat(color, options.colorFormat);
+};
+
+export const generateBorder = (options, context, border, layerType) => {
+  if (
+    layerType === 'text' ||
+    (border.fill && border.fill.type === 'gradient')
+  ) {
+    return {};
+  }
+
+  const borderColor = toRgbaString(border.fill.color);
+  const borderWidth = round(
+    border.thickness / context.project.densityDivisor,
+    1
+  );
+  const borderStyle = border.style || 'solid';
+  return { border: `${borderWidth}px ${borderStyle} ${borderColor}` };
+};
+
+export const generateBoxShadow = (options, context, shadow) => {
+  const offsetX = `${round(
+    shadow.offsetX / context.project.densityDivisor,
+    2
+  )}`;
+  const offsetY = `${round(
+    shadow.offsetY / context.project.densityDivisor,
+    2
+  )}px`;
+  const radius = `${round(
+    shadow.blurRadius / context.project.densityDivisor,
+    2
+  )}px`;
+  const spread = `${round(
+    shadow.spread / context.project.densityDivisor,
+    2
+  )}px`;
+  const { color } = shadow;
+  const string = `${offsetX} ${offsetY} ${radius} ${spread} ${getThemeColor(
+    options,
+    context,
+    color
+  )}`;
+  return { boxShadow: string };
+};
+
+export const blendColors = colors =>
+  colors.reduce((blendedColor, color) => blendedColor.blend(color));
+
+export const getCssValue = (options, context, textStyle, key) => {
+  const value = textStyle[key];
+  switch (key) {
+    case 'color': {
+      return getThemeColor(options, context, value);
+    }
+    case 'weightText':
+    case 'fontWeight':
+      return mapFontWeightValueToNumber(value);
+    case 'lineHeight':
+      return `${round(value / textStyle.fontSize, 2)}`;
+    case 'fontSize':
+    case 'letterSpacing':
+    case 'width':
+    case 'height':
+    case 'borderRadius':
+      return `${round(value, 2)}px`;
+    case 'fontFamily':
+      return humps.pascalize(value);
+    default:
+      return value;
+  }
+};
+
+export const convertToCss = (
+  options,
+  context,
+  style,
+  key,
+  excludeProperties = [],
+  indentation = `${INDENTATION}`
+) => {
+  if (!excludeProperties.includes(key)) {
+    const property = humps.decamelize(key, { separator: '-' });
+    const value = getCssValue(options, context, style, key);
+    if (
+      !options.showDefaultValues &&
+      (value === 'normal' || value === 'regular' || value === '0px')
+    ) {
+      return '';
+    }
+    return `\n${indentation}${property}: ${value};`;
+  }
+  return '';
 };

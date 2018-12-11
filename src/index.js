@@ -1,5 +1,6 @@
 import { generateTextStyles } from './textStyles';
 import { generateColors } from './colorStyles';
+import { generateLayerStyle } from './layer';
 import { OPTION_NAMES } from './config';
 
 export function styleguideTextStyles(context, textStyles) {
@@ -28,6 +29,19 @@ export function exportStyleguideColors(context, colors) {
     filename: 'palette.js',
     language
   };
+}
+
+export function layer(context, selectedLayer) {
+  const options = {
+    colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
+    showDefaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES),
+    excludeProperties: context.getOption(OPTION_NAMES.EXCLUDE_PROPERTIES),
+    colorThemeNameSpace: context.getOption(OPTION_NAMES.COLOR_THEME_NAMESPACE),
+    textStyleThemeNameSpace: context.getOption(
+      OPTION_NAMES.TEXTSTYLE_THEME_NAMESPACE
+    )
+  };
+  return generateLayerStyle(options, context, selectedLayer);
 }
 
 export function exportStyleguideTextStyles(context, textStyles) {
