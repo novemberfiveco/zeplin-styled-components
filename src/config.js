@@ -12,8 +12,6 @@ export const INCLUDE_PROPERTIES = [
 
 export const INDENTATION = `  `;
 
-export const NUMERICAL_DECIMAL_PRECISION = 2;
-
 export const OPTION_NAMES = {
   COLOR_FORMAT: 'colorFormat',
   SHOW_DEFAULT_VALUES: 'showDefaultValues',
