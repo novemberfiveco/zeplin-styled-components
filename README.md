@@ -80,10 +80,10 @@ The're several options you can modify to make this plugin your own and more opti
 ![Zeplin Styled Components options image](screenshots/options.png)
 
 #### Options description:
-* *Theme namespace for colors in styled components:* Use this option if you have a different namespace for theme colors in your project than the default provided. Namespaces will automatically be destructured in the output.
-* *Theme namespace for text styles in styled components:* The same as the color namespace option but for text styles.
-* *Exclude specific css properties (comma seperated)* : If you don't want specific css properties to be generated/exported you can comma seperate them here!
-* *Color format:* In which format the colors will be generated here you can choose:
+* ***Theme namespace for colors in styled components:*** Use this option if you have a different namespace for theme colors in your project than the default provided. Namespaces will automatically be destructured in the output.
+* ***Theme namespace for text styles in styled components:*** The same as the color namespace option but for text styles.
+* ***Exclude specific css properties (comma seperated)*** : If you don't want specific css properties to be generated/exported you can comma seperate them here!
+* ***Color format:*** In which format the colors will be generated here you can choose:
     * Default (HEX)
     * HEX
     * RGB
