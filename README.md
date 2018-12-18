@@ -1,6 +1,6 @@
 # Zeplin Styled Components • [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
 
-A [Zeplin](https://extensions.zeplin.io/) extension that generates [Styled Component](https://www.styled-components.com/) snippets from colors, text styles and layers. 💅 ⚛️ 
+A [Zeplin](https://extensions.zeplin.io/) extension that generates [Styled Component](https://www.styled-components.com/) snippets from colors, text styles and layers. 💅
 
 ## Getting started
 
