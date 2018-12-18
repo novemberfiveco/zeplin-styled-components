@@ -1,7 +1,7 @@
 {
-  "name": "react-styled-components",
+  "name": "zeplin-styled-components",
   "version": "0.1.0",
-  "description": "Zeppeling extension that generates styled components",
+  "description": "A Zeplin extension that generates Styled Component snippets from colors, text styles and layers.",
   "scripts": {
     "start": "webpack --config ./config/webpack.dev.js --progress --color",
     "build": "webpack --config ./config/webpack.prod.js",

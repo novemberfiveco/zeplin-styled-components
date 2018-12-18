@@ -1,7 +1,7 @@
 {
-  "packageName": "react-styled-components",
-  "name": "React styled components",
-  "description": "Zeppeling extension that generates styled components",
+  "packageName": "zeplin-styled-components",
+  "name": "Styled Components",
+  "description": "A Zeplin extension that generates Styled Component snippets from colors, text styles and layers.",
   "version": "0.1.0",
   "moduleURL": "./index.js",
   "author": {
@@ -9,7 +9,7 @@
     "email": "nick.verstocken@novemberfive.co",
     "url": "https://github.com/nickverstocken"
   },
-  "repository": "https://github.com/johankasperi/zem-rn-styled-components.git",
+  "repository": "https://github.com/novemberfiveco/zeplin-styled-components.git",
   "options": [
     {
       "name": "Theme namespace for colors in styled components",
