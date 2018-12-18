@@ -84,10 +84,10 @@ The're several options you can modify to make this plugin your own and more opti
 * *Theme namespace for text styles in styled components:* The same as the color namespace option but for text styles.
 * *Exclude specific css properties (comma seperated)* : If you don't want specific css properties to be generated/exported you can comma seperate them here!
 * *Color format:* In which format the colors will be generated here you can choose:
-  * Default (HEX)
-  * HEX
-  * RGB
-  * HSL
+    * Default (HEX)
+    * HEX
+    * RGB
+    * HSL
 
 If you have more ideas/requests for additional options checkout our [CONTRIBUTING](CONTRIBUTING.md) page for enhancements or issues.
 
