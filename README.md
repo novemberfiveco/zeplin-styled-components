@@ -75,7 +75,7 @@ export const Tooltip = styled.div`
 ```
 
 ### Options
-The're several options you can modify to make this plugin your own and more options are coming in the future! See the [roadmap](##roadmap) our plans for the future.
+The're several options you can modify to make this plugin your own and more options are coming in the future! See the [roadmap](#roadmap) our plans for the future.
 
 ![Zeplin Styled Components options image](screenshots/options.png)
 
