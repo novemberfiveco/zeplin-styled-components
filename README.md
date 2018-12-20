@@ -2,6 +2,8 @@
 
 A [Zeplin](https://extensions.zeplin.io/) extension that generates [Styled Component](https://www.styled-components.com/) snippets from colors, text styles and layers. 💅
 
+![Promotional image](screenshots/header.png)
+
 ## Getting started
 
 Download the extension from the Zeplin extensions website : [Zeplin Styled Components](https://extensions.zeplin.io/). Open a Zeplin project and see the magic!
