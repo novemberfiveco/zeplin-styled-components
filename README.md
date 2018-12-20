@@ -6,7 +6,7 @@ A [Zeplin](https://extensions.zeplin.io/) extension that generates [Styled Compo
 
 ## Getting started
 
-Download the extension from the Zeplin extensions website: [Zeplin Styled Components](https://extensions.zeplin.io/). Open a Zeplin project and see the magic!
+Download the extension from the Zeplin extensions website: [Zeplin Styled Components](https://extensions.zeplin.io/), and open a Zeplin project to see it work its magic.
 
 #### Prerequisites
 - [A Zeplin account](https://zeplin.io/)
@@ -15,7 +15,7 @@ Download the extension from the Zeplin extensions website: [Zeplin Styled Compon
 ### Colors and textstyles
 For colors and textstyles output go to the ***styleguide*** tab.
 
-Click the download icon ![Zeplin Styled Components options image](screenshots/downloadicon.png) to export your styles into your project directly!
+Click the download icon ![Zeplin Styled Components options image](screenshots/downloadicon.png) to export your styles into your project directly.
 
 
 #### Sample colors output:
@@ -62,7 +62,7 @@ export default {
  };
 ```
 ### Layers
-For layers output click on any layer within a project.
+For the layers output click on any layer within a project.
 #### Sample layer output:
 ```js
 export const Tooltip = styled.div`
@@ -77,15 +77,15 @@ export const Tooltip = styled.div`
 ```
 
 ### Options
-There are several options you can modify to make this plugin your own and more options are coming in the future! See the [roadmap](#roadmap) for our plans for the future.
+There are several options to modify this plugin to your own preferences, with even more updates available in the future. Check out the [roadmap](#roadmap) for further details.
 
 ![Zeplin Styled Components options image](screenshots/options.png)
 
 #### Options description:
-* ***Theme namespace for colors in styled components:*** Use this option if you have a different namespace for theme colors in your project than the default provided. Namespaces will automatically be destructured in the output.
-* ***Theme namespace for text styles in styled components:*** The same as the color namespace option but for text styles.
-* ***Exclude specific css properties (comma seperated)*** : If you don't want specific CSS properties to be generated/exported you can comma seperate them here!
-* ***Color format:*** In which format the colors will be generated here you can choose:
+* ***Theme namespace for colors in styled components:*** Use this option if you have a different namespace for theme colors in your project than the provided default. Namespaces will automatically be destructured in the output.
+* ***Theme namespace for text styles in styled components:*** Similar to the color namespace option but for text styles.
+* ***Exclude specific css properties (comma seperated)*** : If you don't want specific CSS properties to be generated/exported you can comma seperate them here.
+* ***Color format:*** Set the generated color format, available in:
     * Default (HEX)
     * HEX
     * RGB
@@ -97,13 +97,13 @@ If you have any ideas or requests for additional options, check out our [contrib
 Currently the following releases are planned:
 ### Zeplin Styled Components 0.2.0
 * Font-size option to change the default (px) to em, rem
-* Option to change the default spacing of 2 characters to something that will fit the need of your project
-* Put fonts used in project in seperated js export
+* Option to change the default spacing of two characters; right for your project
+* Put fonts used in the project in a seperated js export
 * Option to change unitless line-heights
 
 ## Contact
 
-This project is maintained by [*Nick Verstocken*](https://github.com/nickverstocken).
+This project is developed by [*novemberfive.co*](https://novemberfive.co/), and maintained by [*Nick Verstocken*](https://github.com/nickverstocken).
 
 Got any questions or ideas? We'd love to hear from you. Check out our [contributing guidelines](CONTRIBUTING.md) for ways to offer feedback and contribute.
 
