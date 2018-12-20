@@ -6,14 +6,14 @@ A [Zeplin](https://extensions.zeplin.io/) extension that generates [Styled Compo
 
 ## Getting started
 
-Download the extension from the Zeplin extensions website : [Zeplin Styled Components](https://extensions.zeplin.io/). Open a Zeplin project and see the magic!
+Download the extension from the Zeplin extensions website: [Zeplin Styled Components](https://extensions.zeplin.io/). Open a Zeplin project and see the magic!
 
 #### Prerequisites
 - [A Zeplin account](https://zeplin.io/)
 
 ## Usage
 ### Colors and textstyles
-For color and textstyles output go to the ***styleguide*** tab.
+For colors and textstyles output go to the ***styleguide*** tab.
 
 Click the download icon ![Zeplin Styled Components options image](screenshots/downloadicon.png) to export your styles into your project directly!
 
@@ -62,7 +62,7 @@ export default {
  };
 ```
 ### Layers
-For layers output click on any layer wihtin a project
+For layers output click on any layer within a project.
 #### Sample layer output:
 ```js
 export const Tooltip = styled.div`
@@ -77,24 +77,24 @@ export const Tooltip = styled.div`
 ```
 
 ### Options
-The're several options you can modify to make this plugin your own and more options are coming in the future! See the [roadmap](#roadmap) our plans for the future.
+There are several options you can modify to make this plugin your own and more options are coming in the future! See the [roadmap](#roadmap) for our plans for the future.
 
 ![Zeplin Styled Components options image](screenshots/options.png)
 
 #### Options description:
 * ***Theme namespace for colors in styled components:*** Use this option if you have a different namespace for theme colors in your project than the default provided. Namespaces will automatically be destructured in the output.
 * ***Theme namespace for text styles in styled components:*** The same as the color namespace option but for text styles.
-* ***Exclude specific css properties (comma seperated)*** : If you don't want specific css properties to be generated/exported you can comma seperate them here!
+* ***Exclude specific css properties (comma seperated)*** : If you don't want specific CSS properties to be generated/exported you can comma seperate them here!
 * ***Color format:*** In which format the colors will be generated here you can choose:
     * Default (HEX)
     * HEX
     * RGB
     * HSL
 
-If you have more ideas/requests for additional options checkout our [CONTRIBUTING](CONTRIBUTING.md) page for enhancements or issues.
+If you have any ideas or requests for additional options, check out our [contributing guidelines](CONTRIBUTING.md).
 
 ## Roadmap
-Currently we are working on the following release:
+Currently the following releases are planned:
 ### Zeplin Styled Components 0.2.0
 * Font-size option to change the default (px) to em, rem
 * Option to change the default spacing of 2 characters to something that will fit the need of your project
