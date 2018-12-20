@@ -2,7 +2,7 @@
 
 ## Getting started
 
-So you're interested in contributing to *Zeplin Styled Components*? That's great! We're excited to hear your ideas and experiences.
+So you're interested in contributing to Zeplin Styled Components? That's great! We're excited to hear your ideas and experiences.
 
 This file describes all the different ways in which you can contribute.
 
@@ -10,13 +10,13 @@ This file describes all the different ways in which you can contribute.
 
 ## Reporting a bug
 
-Have you encountered a bug while using *Zeplin Styled Components*? Please let us know by reporting it.
+Have you encountered a bug while using Zeplin Styled Components? Please let us know by reporting it.
 
 Before doing so, take a look at the existing [Issues](https://github.com/novemberfiveco/zeplin-styled-components/issues) to make sure the bug you encountered hasn't already been reported by someone else. If so, we ask you to reply to the existing Issue rather than creating a new one. Bugs with many replies will obviously have a higher priority.
 
 If the bug you encountered has not been reported yet, create a new Issue for it and make sure to label it as a 'bug'. To allow us to help you as efficiently as possible, always try to include the following:
 
-- What version of *Zeplin Styled Components* are you using?
+- What version of Zeplin Styled Components are you using?
 - What operating system or environment did the bug occur at.
 - What did go wrong?
 - What did you expect to happen?
@@ -28,11 +28,11 @@ The maintainer of this repository monitors issues on a regular basis and will re
 
 ## Requesting an enhancement
 
-Do you have a great idea that could make *Zeplin Styled Components* even better? First take a look at the **Roadmap** section of our [README](README.md), maybe it is already planned for a future update. If not, feel free to request an enhancement.
+Do you have a great idea that could make Zeplin Styled Components even better? First take a look at the **Roadmap** section of our [README](README.md), maybe it is already planned for a future update. If not, feel free to request an enhancement.
 
 Before doing so, take a look at the existing [Issues](https://github.com/novemberfiveco/zeplin-styled-components/issues) to make sure your idea hasn't already been requested by someone else. If so, we ask you to reply or give a thumbs-up to the existing Issue rather than creating a new one. Requests with many replies will obviously have a higher priority.
 
-If your idea has not been requested yet, create a new Issue for it and make sure to label it as an 'enhancement'. Explain what your idea is in detail and how it could improve *Zeplin Styled Components*.
+If your idea has not been requested yet, create a new Issue for it and make sure to label it as an 'enhancement'. Explain what your idea is in detail and how it could improve Zeplin Styled Components.
 
 The maintainer of this repository monitors issues on a regular basis and will respond to your request as soon as possible.
 
@@ -68,7 +68,7 @@ When contributing code, please try to follow the code style of the existing code
 
 ## Contact
 
-Discussions about *Zeplin Styled Components* take place on this repository's [Issues](https://github.com/novemberfiveco/zeplin-styled-components/issues) and [Pull Requests](https://github.com/novemberfiveco/zeplin-styled-components/pulls) sections. Anybody is welcome to join the conversation. Wherever possible, do not take these conversations to private channels, including contacting the maintainers directly. Keeping communication public means everybody can benefit and learn.
+Discussions about Zeplin Styled Components take place on this repository's [Issues](https://github.com/novemberfiveco/zeplin-styled-components/issues) and [Pull Requests](https://github.com/novemberfiveco/zeplin-styled-components/pulls) sections. Anybody is welcome to join the conversation. Wherever possible, do not take these conversations to private channels, including contacting the maintainers directly. Keeping communication public means everybody can benefit and learn.
 
 
 
