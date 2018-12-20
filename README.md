@@ -6,7 +6,7 @@ A [Zeplin](https://extensions.zeplin.io/) extension that generates [Styled Compo
 
 ## Getting started
 
-Download the extension from the Zeplin extensions website: [Zeplin Styled Components](https://extensions.zeplin.io/), and open a Zeplin project to see it work its magic.
+Download the extension from the Zeplin extensions website: [Zeplin Styled Components](https://extensions.zeplin.io/5c1ba7a217aa3f24679a1ca8), and open a Zeplin project to see it work its magic.
 
 #### Prerequisites
 - [A Zeplin account](https://zeplin.io/)

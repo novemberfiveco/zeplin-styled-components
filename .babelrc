@@ -11,8 +11,8 @@
     "@babel/preset-flow"
   ],
   "plugins": [
-    "transform-es2015-destructuring",
+    "@babel/plugin-transform-destructuring",
     "transform-es2015-parameters",
-    "transform-object-rest-spread"
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }

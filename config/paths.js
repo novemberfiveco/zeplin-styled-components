@@ -9,6 +9,8 @@ const resolveLib = relativePath => path.resolve(rootDirectory, relativePath);
 module.exports = {
   root: rootDirectory,
   src: resolveLib('src'),
+  readme: resolveLib('README.md'),
+  screenshots: resolveLib('screenshots'),
   nodeModules: resolveLib('node_modules'),
   indexJs: resolveLib('src/index.js'),
   manifestJson: resolveLib('src/manifest.json'),
