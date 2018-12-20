@@ -59,6 +59,16 @@ module.exports = {
         from: paths.manifestJson,
         to: paths.dist,
       },
+      {
+        context: paths.root,
+        from: paths.readme,
+        to: paths.dist,
+      },
+      {
+        context: paths.root,
+        from: paths.screenshots,
+        to: `${paths.dist}/screenshots`,
+      },
     ]),
     new CaseSensitivePathsPlugin(),
   ],
