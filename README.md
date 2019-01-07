@@ -107,9 +107,6 @@ This project is developed by [*novemberfive.co*](https://novemberfive.co/), and 
 
 Got any questions or ideas? We'd love to hear from you. Check out our [contributing guidelines](CONTRIBUTING.md) for ways to offer feedback and contribute.
 
-This project is developed by [*novemberfive.co*](https://novemberfive.co/).
-
-
 
 ## License
 
