@@ -1,7 +1,8 @@
 {
   "name": "zeplin-styled-components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Zeplin extension that generates Styled Component snippets from colors, text styles and layers.",
+  "readmeURL": "./README.md",
   "scripts": {
     "start": "webpack --config ./config/webpack.dev.js --progress --color",
     "build": "webpack --config ./config/webpack.prod.js",
