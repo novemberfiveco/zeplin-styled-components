@@ -19,7 +19,7 @@ const convertTextStyle = (options, context, textStyle: TextStyle) => {
         options,
         context,
         textStyle,
-        key !== 'weightText' ? key : 'fontWeight',
+        key,
         excludeProperties,
         `${INDENTATION}${INDENTATION}`
       )

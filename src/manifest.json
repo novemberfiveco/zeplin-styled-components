@@ -55,6 +55,34 @@
       "default": "default"
     },
     {
+      "name": "Root font size in px (only for 'rem' units)",
+      "type": "text",
+      "id": "baseFontSize",
+      "default": "16"
+    },
+    {
+      "name": "Font size format",
+      "type": "picker",
+      "id": "fontSizeUnit",
+      "options": [
+        {
+          "name": "px",
+          "value": "px"
+        },
+        {
+          "name": "rem",
+          "value": "rem"
+        }
+      ],
+      "default": "px"
+    },
+    {
+      "name": "Unitless line-height",
+      "type": "switch",
+      "id": "unitlessLineHeight",
+      "default": true
+    },
+    {
       "name": "Include default browser values",
       "type": "switch",
       "id": "showDefaultValues",

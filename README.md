@@ -90,16 +90,11 @@ There are several options to modify this plugin to your own preferences, with ev
     * HEX
     * RGB
     * HSL
+* ***Root font size:*** Set the font-size on which the rem-values will be calculated.
+* ***Font size format:*** Choose between px and rem for the font-size. **note: em not supported because it relies on the parent font-size which we can't know within Zeplin...**
+* ***Unitless line-height:*** Line-height in px or unitless.
 
 If you have any ideas or requests for additional options, check out our [contributing guidelines](CONTRIBUTING.md).
-
-## Roadmap
-Currently the following releases are planned:
-### Zeplin Styled Components 0.2.0
-* Font-size option to change the default (px) to em, rem
-* Option to change the default spacing of two characters; right for your project
-* Put fonts used in the project in a seperated js export
-* Option to change unitless line-heights
 
 ## Contact
 
