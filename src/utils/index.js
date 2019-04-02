@@ -26,6 +26,19 @@ const toHSLAString = color => {
   return hslStr;
 };
 
+const toREMValue = (fontSize, options) => {
+  const baseUnit = parseInt(options.baseFontSize, 10);
+  const unit = options.fontSizeUnit;
+  switch (unit) {
+    case 'rem': {
+      return `${fontSize / baseUnit}${options.fontSizeUnit}`;
+    }
+    default: {
+      return `${fontSize}${options.fontSizeUnit}`;
+    }
+  }
+};
+
 const toRgbaString = color => {
   const rgb = `${Math.round(color.r)}, ${Math.round(color.g)}, ${Math.round(
     color.b
@@ -34,6 +47,15 @@ const toRgbaString = color => {
   const rgbStr = color.a < 1 ? `rgba(${rgb}, ${color.a})` : `rgb(${rgb})`;
 
   return rgbStr;
+};
+
+const getLineHeight = (value, fontSize, options) => {
+  const isUnitLess = options.unitlessLineHeight;
+  if (!isUnitLess) {
+    return `${round(value / 2, 2)}px`;
+  }
+
+  return `${round(value / fontSize, 2)}`;
 };
 
 export const mapFontWeightValueToNumber = fontweight => {
@@ -156,8 +178,9 @@ export const getCssValue = (options, context, textStyle, key) => {
     case 'fontWeight':
       return mapFontWeightValueToNumber(value);
     case 'lineHeight':
-      return `${round(value / textStyle.fontSize, 2)}`;
+      return getLineHeight(value, textStyle.fontSize, options);
     case 'fontSize':
+      return toREMValue(value, options);
     case 'letterSpacing':
     case 'width':
     case 'height':
@@ -178,8 +201,11 @@ export const convertToCss = (
   excludeProperties = [],
   indentation = `${INDENTATION}`
 ) => {
-  if (!excludeProperties.includes(key)) {
-    const property = humps.decamelize(key, { separator: '-' });
+  if (!excludeProperties.includes(key !== 'weightText' ? key : 'fontWeight')) {
+    const property = humps.decamelize(
+      key !== 'weightText' ? key : 'fontWeight',
+      { separator: '-' }
+    );
     const value = getCssValue(options, context, style, key);
     if (
       !options.showDefaultValues &&
