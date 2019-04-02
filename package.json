@@ -13,7 +13,6 @@
   "main": "index.js",
   "dependencies": {
     "humps": "^2.0.1",
-    "webpack-dev-server": "3.1.11",
     "zem": "^0.3.3"
   },
   "devDependencies": {
