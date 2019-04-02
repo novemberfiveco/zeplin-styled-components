@@ -8,7 +8,10 @@ export function styleguideTextStyles(context, textStyles) {
     colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT),
     showDefaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES),
     excludeProperties: context.getOption(OPTION_NAMES.EXCLUDE_PROPERTIES),
-    colorThemeNameSpace: context.getOption(OPTION_NAMES.COLOR_THEME_NAMESPACE)
+    colorThemeNameSpace: context.getOption(OPTION_NAMES.COLOR_THEME_NAMESPACE),
+    fontSizeUnit: context.getOption(OPTION_NAMES.FONT_SIZE_UNIT),
+    baseFontSize: context.getOption(OPTION_NAMES.BASE_FONT_SIZE),
+    unitlessLineHeight: context.getOption(OPTION_NAMES.UNITLESS_LINEHEIGHT)
   };
   return generateTextStyles(options, context, textStyles);
 }
@@ -37,9 +40,12 @@ export function layer(context, selectedLayer) {
     showDefaultValues: context.getOption(OPTION_NAMES.SHOW_DEFAULT_VALUES),
     excludeProperties: context.getOption(OPTION_NAMES.EXCLUDE_PROPERTIES),
     colorThemeNameSpace: context.getOption(OPTION_NAMES.COLOR_THEME_NAMESPACE),
+    fontSizeUnit: context.getOption(OPTION_NAMES.FONT_SIZE_UNIT),
+    baseFontSize: context.getOption(OPTION_NAMES.BASE_FONT_SIZE),
     textStyleThemeNameSpace: context.getOption(
       OPTION_NAMES.TEXTSTYLE_THEME_NAMESPACE
-    )
+    ),
+    unitlessLineHeight: context.getOption(OPTION_NAMES.UNITLESS_LINEHEIGHT)
   };
   return generateLayerStyle(options, context, selectedLayer);
 }

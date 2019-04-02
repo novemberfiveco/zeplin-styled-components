@@ -17,7 +17,7 @@ const getTextStyles = (options, context, textStyles) => {
     const themeTextStyle =
       textStyle && getThemeTextStyle(options, context, textStyle);
     if (themeTextStyle) {
-      style += `\n${INDENTATION}${themeTextStyle}`;
+      style += `\n${INDENTATION}${themeTextStyle};`;
     } else {
       style += Object.keys(textStyle)
         .map(key =>
@@ -94,7 +94,7 @@ export const generateLayerStyle = (options, context, layer) => {
   }
 
   const styles = Object.keys(style)
-    .map(key => convertToCss(options, context, style, key))
+    .map(key => convertToCss(options, context, style, key, excludeProperties))
     .join('');
 
   let text = '';
@@ -103,7 +103,7 @@ export const generateLayerStyle = (options, context, layer) => {
       options,
       context,
       getUniqueLayerTextStyles(layer)
-    )};`;
+    )}`;
   }
 
   const code = pre + text + styles + post;
