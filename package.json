@@ -16,6 +16,7 @@
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.15",
     "mem": "^5.1.1",
+    "webpack-dev-server": "3.1.11",
     "zem": "^0.3.3"
   },
   "devDependencies": {
