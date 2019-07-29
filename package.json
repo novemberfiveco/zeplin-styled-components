@@ -1,6 +1,6 @@
 {
   "name": "zeplin-styled-components",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Zeplin extension that generates Styled Component snippets from colors, text styles and layers.",
   "readmeURL": "./README.md",
   "scripts": {
@@ -13,6 +13,9 @@
   "main": "index.js",
   "dependencies": {
     "humps": "^2.0.1",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.15",
+    "mem": "^5.1.1",
     "zem": "^0.3.3"
   },
   "devDependencies": {
