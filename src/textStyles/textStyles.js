@@ -1,5 +1,9 @@
 // @flow
 import humps from 'humps';
+import {
+  getResourceContainer,
+  getResources
+} from 'zeplin-extension-style-kit/utils';
 import { convertToCss } from '../utils';
 
 import { INDENTATION } from '../config';
@@ -29,11 +33,9 @@ const convertTextStyle = (options, context, textStyle: TextStyle) => {
   return pre + cssCode + post;
 };
 
-export const generateTextStyles = (
-  options,
-  context,
-  textStyles: TextStyle[]
-) => {
+export const generateTextStyles = (options, context) => {
+  const { container, type } = getResourceContainer(context);
+  const textStyles = getResources(container, type, true, 'textStyles');
   if (options.excludeProperties) {
     excludeProperties = excludeProperties.concat(
       options.excludeProperties
