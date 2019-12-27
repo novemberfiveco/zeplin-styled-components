@@ -17,7 +17,8 @@
     "lodash": "^4.17.15",
     "mem": "^5.1.1",
     "webpack-dev-server": "3.1.11",
-    "zem": "^0.4.3"
+    "zem": "^0.4.3",
+    "zeplin-extension-style-kit": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
