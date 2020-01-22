@@ -837,6 +837,11 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+"@zeplin/extension-model@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@zeplin/extension-model/-/extension-model-2.3.0.tgz#ecdd091539551a715476b9bb8fab404a6ae3576a"
+  integrity sha512-mv7VCakTYKUaXjDY52MXEpUF6Vp74sdOlFyaf1ohqtRS3xsYnapEpwQX0Icit0OHhH5rdvRkCdUOtceu8EtWbg==
+
 "@zeplin/extension-model@^1.1.1":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@zeplin/extension-model/-/extension-model-1.4.3.tgz#c3ad4c8ae45854ca5a9e78f0a0cdb01b82220fa9"
@@ -2634,6 +2639,11 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+css.escape@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/css.escape/-/css.escape-1.5.1.tgz#42e27d4fa04ae32f931a4b4d4191fa9cddee97cb"
+  integrity sha1-QuJ9T6BK4y+TGktNQZH6nN3ul8s=
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -8336,3 +8346,11 @@ zem@^0.4.3:
     webpack "^3.11.0"
     webpack-dev-server "^2.11.2"
     webpack-merge "^4.1.2"
+
+zeplin-extension-style-kit@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/zeplin-extension-style-kit/-/zeplin-extension-style-kit-1.2.0.tgz#109515f6c5970cda4e09f618e70579ddab86fb69"
+  integrity sha512-jQ8psTfMlLDEpBqc4EWiz9/TcV+OBN3BOoZ8LHxbJiTiPbu3vLyez534weAX5iByyZzCZ5NPpgj5gEo+OsEr4Q==
+  dependencies:
+    "@zeplin/extension-model" "2.3.0"
+    css.escape "^1.5.1"

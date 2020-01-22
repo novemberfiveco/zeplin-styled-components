@@ -1,3 +1,7 @@
+import {
+  getResourceContainer,
+  getResources
+} from 'zeplin-extension-style-kit/utils';
 import { generateTextStyles } from './textStyles';
 import { generateColors } from './colorStyles';
 import { generateLayerStyle } from './layer';
@@ -16,11 +20,13 @@ export function styleguideTextStyles(context, textStyles) {
   return generateTextStyles(options, context, textStyles);
 }
 
-export function styleguideColors(context, colors) {
+export function styleguideColors(context) {
+  const { container, type } = getResourceContainer(context);
+  const allColors = getResources(container, type, true, 'colors');
   const options = {
     colorFormat: context.getOption(OPTION_NAMES.COLOR_FORMAT)
   };
-  return generateColors(options, context, colors);
+  return generateColors(options, context, allColors);
 }
 
 export function exportStyleguideColors(context, colors) {
